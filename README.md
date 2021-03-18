@@ -1,5 +1,5 @@
 # Django-Calculator
-A basic Django introduction project  
+A basic Django Introduction Project.  
 Run server using : python manage.py runserver  
 
 
