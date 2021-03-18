@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <title>Django Calculator</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/CalcApp">Django Calculator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#instructions">Instructions</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+      <p style="text-align: center;">
+        {{ query }} = {{ ans }}
+      </p>
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+      <p style="text-align: center;">
+        Check your query
+      </p>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-6" style="margin: 1rem auto 0 auto;">
+        <div class="card">
+          <div class="card-body">
+            <form method="GET" action="{% url 'calculate' %}">
+              <div class="form-group">
+                <input type="search" name="query" id="query" class="form-control">
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="submit"  class="btn btn-success" style="display:block; margin: 1rem auto;">Submit</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="reset" class="btn btn-danger" style="display:block; margin: 1rem auto;">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" style="margin: 2rem auto 0 auto;">
+        <p class="display-4" id="about">
+          About
+        </p>  
+        <hr>
+        <p class="lead">
+          Welcome to My Django Calculator
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" style="margin: 2rem auto 0 auto;">
+        <p class="display-4" id="instructions">
+          Instructions
+        </p>  
+        <hr>
+        <ul class="list-group">
+          <li class="list-group-item">+ for Addition: 2+3</li>
+          <li class="list-group-item">- for Subtraction: 9-7</li>
+          <li class="list-group-item">* for Multiplication: 2*8</li>
+          <li class="list-group-item">/ for Division: 8/2</li>
+          <li class="list-group-item">// for Integer Division: 7//2</li>
+          <li class="list-group-item">% for Remainder: 7%2</li>
+          <li class="list-group-item">() for Parenthesis: 2+(7%2)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="margin-bottom: 5rem;">
+    <div class="row">
+      <footer class="fixed-bottom" style="background:black;color: white; text-align: center;">
+        <p>My Django Calculator</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+  -->
+</body>
+</html>
